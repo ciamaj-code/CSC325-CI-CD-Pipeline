@@ -12,8 +12,15 @@ class StatusAPITests(TestCase):
         response = self.client.get(reverse('status'))
 
         self.assertEqual(response.data['status'], 'success')
-        self.assertEqual(response.data['version'], 1)
+        self.assertEqual(response.data['version'], 2)
         self.assertEqual(
             response.data['message'],
             'CSC 325 CI/CD Pipeline is working!'
+        )
+
+    def test_deployment_message(self):
+        response = self.client.get(reverse('status'))
+        self.assertEqual(
+            response.data['deployment'],
+            'Updated through GitHub Actions'
         )
