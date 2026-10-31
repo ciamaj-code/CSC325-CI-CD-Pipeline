@@ -7,5 +7,6 @@ def status(request):
     return Response({
         'status': 'success',
         'message': 'CSC 325 CI/CD Pipeline is working!',
-        'version': 1
+        'version': 2,
+        'deployment': 'Updated through GitHub Actions'
     })
